@@ -1,3 +1,5 @@
+//Explicacion en el comentario
+
 class Pasajero {
     private int id;
     private int prioridad;
