@@ -1,5 +1,7 @@
 import java.util.*;
 
+//Explicacion en el comentario
+
 class Barco {
     private final List<Pasajero> pasajeros;
 
