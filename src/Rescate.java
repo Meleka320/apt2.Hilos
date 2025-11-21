@@ -14,7 +14,7 @@ class Rescate implements Runnable {
     @Override
     public void run() {
         while (barco.hayPasajeros()) {
-            List<Pasajero> rescatados = barco.rescatar(balsa.getCapacidad());
+            List<Pasajero> rescatados = barco.rescatarPasajeros(balsa.getCapacidad());
             if (!rescatados.isEmpty()) {
                 System.out.print("Balsa " + balsa.getNombre() + " rescató a pasajeros: ");
                 for (Pasajero p : rescatados) {
