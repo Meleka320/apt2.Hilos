@@ -1,6 +1,6 @@
 import java.util.*;
 
-//Explicacion en el comentario
+//Explicacion en el comentari
 
 class Barco {
     private final List<Pasajero> pasajeros;
