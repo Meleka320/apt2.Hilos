@@ -1,16 +1,25 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class Barco {
-
-    private final List<Pasajero> pasajeros = new ArrayList<>();
+class Barco {
+    private final List<Pasajero> pasajeros;
 
     public Barco(List<Pasajero> pasajeros) {
-        this.pasajeros.addAll(pasajeros);
+        this.pasajeros = pasajeros;
     }
 
-    public boolean hayPasajeros(){
+    public synchronized List<Pasajero> rescatar(int cantidad) {
+        // Ordenamos por prioridad (menor primero)
+        pasajeros.sort(Comparator.comparingInt(Pasajero::getPrioridad));
+
+        List<Pasajero> rescatados = new ArrayList<>();
+        int n = Math.min(cantidad, pasajeros.size());
+        for (int i = 0; i < n; i++) {
+            rescatados.add(pasajeros.remove(0));
+        }
+        return rescatados;
+    }
+
+    public boolean hayPasajeros() {
         return !pasajeros.isEmpty();
     }
-
 }
