@@ -1,6 +1,6 @@
 import java.util.*;
 
-
+//Explicacion en el comentario
 class Balsa {
     private String nombre;
     private int capacidad;
