@@ -1,8 +1,31 @@
-public class Rescate implements Runnable{
+import java.util.*;
 
-    public Rescate(){}
+class Rescate implements Runnable {
+    private Balsa balsa;
+    private Barco barco;
+
+    public Rescate(Balsa balsa, Barco barco) {
+        this.balsa = balsa;
+        this.barco = barco;
+    }
+
     @Override
     public void run() {
-        while(true){}
+        while (barco.hayPasajeros()) {
+            List<Pasajero> rescatados = barco.rescatar(balsa.getCapacidad());
+            if (!rescatados.isEmpty()) {
+                System.out.print("Balsa " + balsa.getNombre() + " rescató a pasajeros: ");
+                for (Pasajero p : rescatados) {
+                    System.out.print(p.getId() + " ");
+                }
+                System.out.println();
+            }
+
+            try {
+                Thread.sleep(balsa.getTiempo()); // esperar tiempo de rescate
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
