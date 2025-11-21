@@ -1,5 +1,7 @@
 import java.util.*;
 
+//Explicacion en el comentario
+
 class Rescate implements Runnable {
     private Balsa balsa;
     private Barco barco;
