@@ -26,7 +26,7 @@ public class Barco {
 
             try {
                 semaphore.acquire();
-                // 1. Buscar la menor prioridad presente
+
                 int menorPrioridad = Integer.MAX_VALUE;
                 for (int i = 0; i < pasajeros.size(); i++) {
                     Pasajero p = pasajeros.get(i);
