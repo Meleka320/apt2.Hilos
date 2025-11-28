@@ -1,26 +1,22 @@
-import java.util.*;
+import java.util.concurrent.Semaphore;
 
-//Explicacion en el comentario
 class Balsa {
     private String nombre;
     private int capacidad;
-    private int tiempo; // en milisegundos
+    private int tiempo; // en ms
+
+    // Semáforo que controla cuántos pasajeros puede tomar la balsa a la vez
+    private Semaphore permisoBalsa;
 
     public Balsa(String nombre, int capacidad, double tiempoSegundos) {
         this.nombre = nombre;
         this.capacidad = capacidad;
-        this.tiempo = (int)(tiempoSegundos * 1000); // convertir a ms
+        this.tiempo = (int)(tiempoSegundos * 1000);
+        this.permisoBalsa = new Semaphore(capacidad);
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public int getCapacidad() {
-        return capacidad;
-    }
-
-    public int getTiempo() {
-        return tiempo;
-    }
+    public String getNombre() { return nombre; }
+    public int getCapacidad() { return capacidad; }
+    public int getTiempo() { return tiempo; }
+    public Semaphore getPermisoBalsa() { return permisoBalsa; }
 }
